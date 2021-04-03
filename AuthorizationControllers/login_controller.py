@@ -24,15 +24,4 @@ def login():
             return jsonify(access_token=access_token)
         else:
             return make_response("BAD CREDENTIALS", 401)
-    # username = request.json.get("username", None)
-    # password = request.json.get("password", None)
-    # if username and password:
-    #     user_object = User.objects(username=username).first()
-    #     if user_object:
-    #         if user_object.password == password:
-    #             access_token = create_access_token(identity=username)
-    #             return jsonify(access_token=access_token)
-    #         else:
-    #             return make_response("BAD CREDENTIALS", 401)
-    # else:
-    #     return make_response("MISSING INFORMATIONS", 401)
+

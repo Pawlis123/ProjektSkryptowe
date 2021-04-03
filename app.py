@@ -4,7 +4,7 @@ from Model import db
 # from flask_jwt_extended import get_jwt_identity
 # from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
-from AuthorizationContollers import login_controller, register_controller
+from AuthorizationControllers import login_controller, register_controller
 
 mongodb_password = "wknpiwgm"
 
