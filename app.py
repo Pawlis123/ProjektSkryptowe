@@ -27,46 +27,4 @@ def hello_world():
 if __name__ == '__main__':
     app.run(debug=True)
 
-# class Book(db.Document):
-#     book_id = db.IntField()
-#     title = db.StringField()
-#     author = db.StringField()
-#
-#     def to_json(self):
-#         return {
-#             "book_id": self.book_id,
-#             "title": self.title,
-#             "author": self.author
-#         }
-#
-#
-# @app.route('/api/db_populate', methods=['POST'])
-# def db_populate():
-#     book1 = Book(book_id=1, title="Game of Thrones", author="Martin")
-#     book2 = Book(book_id=2, title="testXD", author="MartinXD")
-#     book1.save()
-#     book2.save()
-#     return make_response("", 200)
-#
-#
-# @app.route('/api/books', methods=['GET', 'POST'])
-# def api_books():
-#     if request.method == "GET":
-#         books = []
-#         for book in Book.objects:
-#             books.append(book)
-#         return make_response(jsonify(books), 200)
-#
-#     elif request.method == "POST":
-#         content = request.json
-#         book = Book(book_id=content['book_id'], title=content['title'], author=content['author'])
-#         book.save()
-#         return make_response("", 201)
-#
-#
-# @app.route('/api/books/<book_id>', methods=['GET', 'PUT', 'DELETE'])
-# def api_each_book(book_id):
-#     if request.method == "GET":
-#         pass
-#     elif request.method == "POST":
-#         pass
+
