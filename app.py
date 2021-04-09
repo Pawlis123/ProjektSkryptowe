@@ -1,6 +1,6 @@
 from flask import Flask
 from Model import db
-from flask_jwt_extended import JWTManager, jwt_required
+from flask_jwt_extended import JWTManager
 from AuthorizationControllers import login_controller, register_controller
 import datetime
 from UtilityControllers import add_url

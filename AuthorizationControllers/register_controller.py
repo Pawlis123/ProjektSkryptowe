@@ -18,11 +18,11 @@ def register_endpoint():
             return make_response("MISSING PASSWORD", 401)
 
         password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-        user = User(username=username, password=password, rss_url_list=[])
+        user = User(username=username, password=password, rss_url_dict={})
         try:
             user.save()
         except:
             return make_response("NON UNIQUE USERNAME VALUE", 403)
         return make_response("", 201)
     else:
-        return make_response("Missing informations", 401)
+        return make_response("Missing request body", 401)
