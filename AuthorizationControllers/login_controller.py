@@ -6,7 +6,7 @@ import bcrypt
 login_controller = Blueprint("login_controller", __name__)
 
 
-@login_controller.route("/login", methods=["POST"])
+@login_controller.route("/api/login", methods=["POST"])
 def login():
     content = request.json
     if content:

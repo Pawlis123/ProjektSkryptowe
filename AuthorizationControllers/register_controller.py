@@ -2,10 +2,11 @@ from Model.User import User
 from flask import make_response, request, Blueprint
 import bcrypt
 
+
 register_controller = Blueprint("register_controller", __name__)
 
 
-@register_controller.route('/register', methods=['POST'])
+@register_controller.route('/api/register', methods=['POST'])
 def register_endpoint():
     content = request.json
     if content:
@@ -17,7 +18,7 @@ def register_endpoint():
             return make_response("MISSING PASSWORD", 401)
 
         password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-        user = User(username=username, password=password)
+        user = User(username=username, password=password, rss_url_list=[])
         try:
             user.save()
         except:
