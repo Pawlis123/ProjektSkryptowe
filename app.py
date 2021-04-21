@@ -3,7 +3,8 @@ from Model import db
 from flask_jwt_extended import JWTManager
 from AuthorizationControllers import login_controller, register_controller
 import datetime
-from UtilityControllers import add_url
+from UtilityControllers import url_manager, get_articles
+
 
 mongodb_password = "wknpiwgm"
 
@@ -18,7 +19,8 @@ db.init_app(app)
 jwt = JWTManager(app)
 app.register_blueprint(login_controller.login_controller)
 app.register_blueprint(register_controller.register_controller)
-app.register_blueprint(add_url.add_url)
+app.register_blueprint(url_manager.url_manager)
+app.register_blueprint(get_articles.get_articles)
 
 if __name__ == '__main__':
     app.run(debug=True)

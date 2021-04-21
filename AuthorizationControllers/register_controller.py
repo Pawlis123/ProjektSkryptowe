@@ -1,5 +1,5 @@
 from Model.User import User
-from flask import make_response, request, Blueprint
+from flask import make_response, request, Blueprint, jsonify
 import bcrypt
 
 
@@ -13,16 +13,16 @@ def register_endpoint():
         username = content['username']
         password = content['password']
         if not username:
-            return make_response("MISSING USERNAME", 401)
+            return make_response(jsonify(msg="MISSING USERNAME"), 401)
         if not password:
-            return make_response("MISSING PASSWORD", 401)
+            return make_response(jsonify(msg="MISSING PASSWORD"), 401)
 
         password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
         user = User(username=username, password=password, rss_url_dict={})
         try:
             user.save()
         except:
-            return make_response("NON UNIQUE USERNAME VALUE", 403)
-        return make_response("", 201)
+            return make_response(jsonify(msg="PROVIDED USERNAME IS NOT UNIQUE"), 403)
+        return make_response(jsonify(msg="USER CREATED"), 201)
     else:
-        return make_response("Missing request body", 401)
+        return make_response(jsonify(msg="MISSING REQUEST BODY"), 401)
