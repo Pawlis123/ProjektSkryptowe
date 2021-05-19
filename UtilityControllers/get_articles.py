@@ -1,5 +1,5 @@
 from Model.User import User
-from flask import request, Blueprint, jsonify, make_response
+from flask import Blueprint, jsonify, make_response
 from flask_jwt_extended import jwt_required, get_jwt_identity
 import Utils.ArticlesFetching as af
 

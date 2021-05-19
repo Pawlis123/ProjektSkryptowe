@@ -22,7 +22,7 @@ def register_endpoint():
         try:
             user.save()
         except:
-            return make_response(jsonify(msg="PROVIDED USERNAME IS NOT UNIQUE"), 403)
+            return make_response(jsonify(msg="USER WITH THAT USERNAME ALREADY EXISTS"), 403)
         return make_response(jsonify(msg="USER CREATED"), 201)
     else:
         return make_response(jsonify(msg="MISSING REQUEST BODY"), 401)
