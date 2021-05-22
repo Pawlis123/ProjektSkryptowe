@@ -13,7 +13,6 @@ def get_title_and_links_list(url: str):
     try:
         news_feed = fp.parse(url)
     except:
-        result_list.append("PROVIDED URL IS NOT VALID")
         return result_list
 
     for i in range(min(10, len(news_feed.entries))):
