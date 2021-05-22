@@ -13,9 +13,11 @@ def register_endpoint():
         username = content['username']
         password = content['password']
         if not username:
-            return make_response(jsonify(msg="MISSING USERNAME"), 401)
+            return make_response(jsonify(msg="MISSING USERNAME"), 400)
         if not password:
-            return make_response(jsonify(msg="MISSING PASSWORD"), 401)
+            return make_response(jsonify(msg="MISSING PASSWORD"), 400)
+        if len(password) < 6:
+            return make_response(jsonify(msg="Password should be at leas 6 character long"), 400)
 
         password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
         user = User(username=username, password=password, rss_url_dict={})
