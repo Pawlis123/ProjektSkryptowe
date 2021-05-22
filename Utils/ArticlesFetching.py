@@ -15,6 +15,7 @@ def get_title_and_links_list(url: str):
     except:
         return result_list
 
+    print(type(news_feed))
     for i in range(min(10, len(news_feed.entries))):
         entry = news_feed.entries[i]
         temp_list = []

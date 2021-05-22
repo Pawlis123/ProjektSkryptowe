@@ -24,4 +24,6 @@ def login():
             return jsonify(access_token=access_token)
         else:
             return make_response(jsonify(msg="BAD CREDENTIALS"), 401)
+    else:
+        return make_response(jsonify(msg="MISSING REQUEST BODY"), 400)
 
