@@ -21,15 +21,15 @@ def get_title_and_links_list(url: str):
         try:
             temp_list.append(entry.title)
         except:
-            pass
+            temp_list.append("Title is missing")
         try:
             temp_list.append(entry.link)
         except:
-            pass
+            temp_list.append("Link is missing")
         try:
             temp_list.append(entry.published)
         except:
-            pass
+            temp_list.append("Date of publication is missing")
         if len(temp_list) != 0:
             result_list.append(temp_list)
     return result_list
