@@ -1,6 +1,8 @@
+import bcrypt
+
 from Model.User import User
 from flask import make_response, request, Blueprint, jsonify
-import bcrypt
+
 
 
 register_controller = Blueprint("register_controller", __name__)
@@ -17,7 +19,7 @@ def register_endpoint():
         if not password:
             return make_response(jsonify(msg="MISSING PASSWORD"), 400)
         if len(password) < 6:
-            return make_response(jsonify(msg="Password should be at leas 6 character long"), 400)
+            return make_response(jsonify(msg="Password should be at least 6 characters long"), 400)
 
         password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
         user = User(username=username, password=password, rss_url_dict={})

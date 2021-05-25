@@ -15,7 +15,6 @@ def get_title_and_links_list(url: str):
     except:
         return result_list
 
-    print(type(news_feed))
     for i in range(min(10, len(news_feed.entries))):
         entry = news_feed.entries[i]
         temp_list = []
@@ -26,11 +25,11 @@ def get_title_and_links_list(url: str):
         try:
             temp_list.append(entry.link)
         except:
-            temp_list.append("Link is missing")
+            temp_list.append("https://www.google.pl/")
         try:
             temp_list.append(entry.published)
         except:
-            temp_list.append("Date of publication is missing")
+            temp_list.append("Not provided")
         if len(temp_list) != 0:
             result_list.append(temp_list)
     return result_list
